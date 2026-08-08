@@ -57,10 +57,10 @@
     <!-- STAGE 1 GAME -->
     <section id="stage-game" class="stage active">
       <div class="glass">
-        <div class="badge">✨ Birthday Surprise ✨</div>
+        <div class="badge">✨ Birthday Surprise Quiz ✨</div>
         <div class="avatar">🎂</div>
         <h1>Hold On A Second!</h1>
-        <p class="q-text">Do you accept 1,000,000 birthday hugs, endless cake, and all my best wishes today? 💖</p>
+        <p class="q-text" id="game-q-text">Do you accept 1,000,000 birthday hugs, endless cake, and all my best wishes today? 💖</p>
         <div class="btns-box" id="btns-box">
           <button id="btn-yes" class="btn btn-yes">YES! Of Course! 🥰</button>
           <button id="btn-no" class="btn btn-no">No 😜</button>
@@ -72,7 +72,8 @@
     <!-- STAGE 2 HUB -->
     <section id="stage-hub" class="stage">
       <div class="glass">
-        <h1 style="font-family: 'Pacifico', cursive; font-size: 2.8rem; margin-bottom: 8px;">Happy Birthday, Ansh! ✨</h1>
+        <div class="badge">🎉 Happy Birthday! 🎉</div>
+        <h1 style="font-family: 'Pacifico', cursive; font-size: 2.8rem; margin-bottom: 8px;">Happy Birthday, <span id="star-name">Ansh</span>! ✨</h1>
         <p style="color: #636e72; margin-bottom: 24px;">Wishing you an unforgettable day filled with sweet moments and joy!</p>
 
         <!-- CAKE SECTION -->
@@ -87,11 +88,7 @@
 
         <!-- GIFTS SECTION -->
         <h2 style="font-family:'Fredoka'; color:var(--pink); font-size:1.5rem; margin-top:20px;">🎁 Tap Your Surprise Gifts!</h2>
-        <div class="gifts-grid">
-          <div class="gift-card" onclick="openGift('Surprise #1 🎟️', 'VIP Coupon for unlimited birthday hugs, your favorite dessert, and zero worries all day! 🍰')"><div style="font-size:3rem;">🎁</div><b>Open Me First!</b></div>
-          <div class="gift-card" onclick="openGift('Surprise #2 👑', 'May all your secret wishes, grandest dreams, and wildest goals come true this year! ✨')"><div style="font-size:3rem;">👑</div><b>Secret Wish</b></div>
-          <div class="gift-card" onclick="openGift('Surprise #3 💌', 'You make the world a warmer, brighter, and happier place just by being in it! 💕')"><div style="font-size:3rem;">💌</div><b>Special Note</b></div>
-        </div>
+        <div class="gifts-grid" id="gifts-grid-container"></div>
       </div>
     </section>
   </div>
@@ -106,8 +103,57 @@
     </div>
   </div>
 
+  <!-- ================================================================= -->
+  <!-- ✍️ EDIT YOUR CUSTOM NAMES & GIFT POPUP MESSAGES HERE: -->
+  <!-- ================================================================= -->
   <script>
+    const CONFIG = {
+      // 1. Birthday Person's Name:
+      name: "Ansh",
+
+      // 2. Quiz Question:
+      question: "Do you accept 1,000,000 birthday hugs, endless cake, and all my best wishes today? 💖",
+
+      // 3. EDIT YOUR GIFT POPUP MESSAGES HERE:
+      gifts: [
+        { 
+          emoji: "🎁", 
+          boxLabel: "Open Me First!", 
+          title: "Surprise #1 🎟️", 
+          text: "Write your custom message for Gift #1 here! 🍰" 
+        },
+        { 
+          emoji: "👑", 
+          boxLabel: "Secret Wish", 
+          title: "Surprise #2 👑", 
+          text: "Write your custom message for Gift #2 here! ✨" 
+        },
+        { 
+          emoji: "💌", 
+          boxLabel: "Special Note", 
+          title: "Surprise #3 💌", 
+          text: "Write your custom message for Gift #3 here! 💕" 
+        }
+      ]
+    };
+
     let noAttempts = 0, activeCandles = 4, audioCtx = null, isMusic = false;
+
+    document.addEventListener('DOMContentLoaded', () => {
+      document.getElementById('star-name').textContent = CONFIG.name;
+      document.getElementById('game-q-text').textContent = CONFIG.question;
+
+      // Render Dynamic Gifts from CONFIG
+      const giftsContainer = document.getElementById('gifts-grid-container');
+      giftsContainer.innerHTML = '';
+      CONFIG.gifts.forEach((g) => {
+        const card = document.createElement('div');
+        card.className = 'gift-card';
+        card.innerHTML = `<div style="font-size:3rem;">${g.emoji}</div><b>${g.boxLabel}</b>`;
+        card.onclick = () => openGift(g.title, g.text);
+        giftsContainer.appendChild(card);
+      });
+    });
 
     // NO BUTTON DODGE
     const btnNo = document.getElementById('btn-no'), btnYes = document.getElementById('btn-yes'), box = document.getElementById('btns-box');
