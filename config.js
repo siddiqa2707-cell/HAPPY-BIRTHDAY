@@ -54,21 +54,21 @@ const CONFIG = {
   gifts: [
     {
       id: 1,
-      title: "Surprise #1 🎟️",
+      title: "🎟️",
       boxLabel: "Open Me First!",
-      content: "A VIP Coupon for unlimited birthday hugs, your favorite dessert, and zero worries all day! 🍰 HUG APPROVED!"
+      content: "Hope Your Day Was As Good As You Are!!"
     },
     {
       id: 2,
-      title: "Surprise #2 👑",
-      boxLabel: "A Secret Wish",
+      title: "👑",
+      boxLabel: "A Wish",
       content: "May all your secret wishes, grandest dreams, and wildest goals come true this year! You are capable of amazing things."
     },
     {
       id: 3,
-      title: "Surprise #3 💌",
+      title: "💌",
       boxLabel: "Special Note",
-      content: "You make the world a warmer, brighter, and happier place just by being in it. Stay wonderful always! ✨"
+      content: "I Love You! And I'm Sorry Also Be Happy Always ✨"
     }
   ],
 
