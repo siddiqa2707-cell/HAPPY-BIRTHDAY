@@ -4,6 +4,57 @@
 // Web Audio synthesizer, wishes slider, gift modals, and customizer.
 // =================================================================
 
+// Provide robust fallback if CONFIG is missing or broken
+if (typeof CONFIG === 'undefined') {
+  window.CONFIG = {
+    name: "Ansh",
+    titleTag: "Happy Birthday! 🎉",
+    age: "Special Day",
+    game: {
+      question: "Do you accept 1,000,000 birthday hugs, endless cake, and all my best wishes today? 💖",
+      yesButtonText: "YES! Of Course! 🥰",
+      noButtonText: "No 😜",
+      noButtonMessages: [
+        "Are you sure? 😮",
+        "Think again! 🤔",
+        "Nice try! 😜",
+        "You can't click me! 🚀",
+        "Press YES already! 💕",
+        "Still trying? 😂",
+        "No option not allowed! 🚫",
+        "Just click YES! 🥳"
+      ]
+    },
+    wishes: [
+      {
+        icon: "✨",
+        title: "Wishing You The Best!",
+        text: "May your day be filled with endless laughter, boundless joy, and unforgettable moments. You deserve all the happiness in the world!"
+      },
+      {
+        icon: "🌟",
+        title: "Shine Bright!",
+        text: "Another year older, wiser, and even more amazing. Keep shining bright and inspiring everyone around you!"
+      }
+    ],
+    gifts: [
+      {
+        id: 1,
+        title: "Surprise #1 🎟️",
+        boxLabel: "Open Me First!",
+        content: "A VIP Coupon for unlimited birthday hugs, your favorite dessert, and zero worries all day! 🍰 HUG APPROVED!"
+      }
+    ],
+    photos: [
+      {
+        url: "https://images.unsplash.com/photo-1513151233558-d860c5398176?auto=format&fit=crop&w=600&q=80",
+        caption: "Party Time! 🎉"
+      }
+    ],
+    secretCakeWish: "🎉 Woohoo! Candles blown out! May your year ahead be as sweet as this cake and filled with golden moments! ✨"
+  };
+}
+
 document.addEventListener('DOMContentLoaded', () => {
   // State Variables
   let currentConfig = JSON.parse(JSON.stringify(CONFIG));
