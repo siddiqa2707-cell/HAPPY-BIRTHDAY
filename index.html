@@ -12,10 +12,17 @@
     .btn{padding:12px 28px;border-radius:50px;border:none;font-family:'Fredoka';font-size:1.1rem;font-weight:600;cursor:pointer;margin:10px;transition:0.2s;}
     .byes{background:#ff6584;color:#fff;box-shadow:0 6px 20px rgba(255,101,132,0.4);}
     .bno{background:#dfe6e9;color:#636e72;position:relative;}
-    .tier{margin:0 auto;background:#ff758c;border-radius:10px;}
-    .t1{width:120px;height:40px;} .t2{width:160px;height:50px;background:#a1c4fd;margin-top:-6px;}
-    .candle{width:12px;height:40px;background:#74b9ff;display:inline-block;margin:0 8px;border-radius:4px 4px 0 0;position:relative;cursor:pointer;}
-    .flame{position:absolute;top:-18px;left:50%;transform:translateX(-50%);width:12px;height:18px;background:#ff7675;border-radius:50%;box-shadow:0 0 8px #ff7675;}
+    .cake-box{display:flex;flex-direction:column;align-items:center;justify-content:center;margin:15px 0;}
+    #crow{display:flex;justify-content:center;gap:14px;margin-bottom:-4px;position:relative;z-index:5;}
+    .tier{background:#ff758c;border-radius:12px;box-shadow:0 4px 10px rgba(0,0,0,0.08);}
+    .t1{width:130px;height:42px;background:linear-gradient(135deg,#ff758c,#ff7eb3);} 
+    .t2{width:170px;height:52px;background:linear-gradient(135deg,#a1c4fd,#c2e9fb);margin-top:-6px;}
+    .candle{width:12px;height:40px;background:linear-gradient(to right,#74b9ff,#0984e3);border-radius:4px 4px 0 0;position:relative;cursor:pointer;}
+    .candle:nth-child(2){background:linear-gradient(to right,#fd79a8,#e84393);}
+    .candle:nth-child(3){background:linear-gradient(to right,#ffeaa7,#fdcb6e);}
+    .candle:nth-child(4){background:linear-gradient(to right,#55efc4,#00b894);}
+    .flame{position:absolute;top:-18px;left:50%;transform:translateX(-50%);width:12px;height:18px;background:linear-gradient(to top,#ff7675,#ffeaa7);border-radius:50%;box-shadow:0 0 10px #ff7675;animation:flick 0.5s infinite alternate;}
+    @keyframes flick{0%{opacity:0.8;transform:translateX(-50%) scale(0.9);}100%{opacity:1;transform:translateX(-50%) scale(1.1);}}
     .candle.off .flame{display:none;}
     .ggrid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:20px;}
     .gcard{background:#fff;padding:15px 5px;border-radius:14px;cursor:pointer;border:2px dashed #ff6584;font-size:0.9rem;}
@@ -46,16 +53,19 @@
     
     <div style="margin:25px 0;">
       <h3 style="font-family:'Fredoka';color:#ff6584;">🎂 Tap candles to blow them out!</h3>
-      <div id="crow" style="margin:15px 0;"></div>
-      <div class="tier t1"></div><div class="tier t2"></div>
+      <div class="cake-box">
+        <div id="crow"></div>
+        <div class="tier t1"></div>
+        <div class="tier t2"></div>
+      </div>
       <p id="wb" style="display:none;margin-top:12px;font-weight:bold;color:#d63031;background:#ffeaa7;padding:8px;border-radius:10px;">🎉 Wish Coming True! All Candles Out! ✨</p>
     </div>
 
     <h3 style="font-family:'Fredoka';color:#ff6584;">🎁 Tap Your Surprise Gifts!</h3>
     <div class="ggrid">
-      <div class="gcard" onclick="og('Surprise #1 💛', 'You are my yellow (seacrh more on google)!!!! 🌟')"><div style="font-size:2.2rem;">🎁</div><b>Surprise 1</b></div>
-      <div class="gcard" onclick="og('Surprise #2 👑', 'I want to see you achive everything you\'ve ever told me, even if I am not there. ✨')"><div style="font-size:2.2rem;">👑</div><b>Surprise 2</b></div>
-      <div class="gcard" onclick="og('Surprise #3 💌', 'On your special day, I just want to remind you how deeply you are loved, and how grateful I am to have you in my life. Happy birthday! 💕')"><div style="font-size:2.2rem;">💌</div><b>Surprise 3</b></div>
+      <div class="gcard" onclick="og('💛', 'You are my yellow (seacrh more on google)!!!! 🌟')"><div style="font-size:2.2rem;">LOVE </div><b>Surprise 1</b></div>
+      <div class="gcard" onclick="og('👑', 'I want to see you achive everything you\'ve ever told me, even if I am not there. ✨')"><div style="font-size:2.2rem;">A Wish</div><b>Surprise 2</b></div>
+      <div class="gcard" onclick="og('💌', 'On your special day, I just want to remind you how deeply you are loved, and how grateful I am to have you in my life. Happy birthday! 💕')"><div style="font-size:2.2rem;">LIL LETTER</div><b>Surprise 3</b></div>
     </div>
   </div>
 
