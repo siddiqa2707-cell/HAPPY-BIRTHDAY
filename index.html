@@ -73,7 +73,7 @@
     <section id="stage-hub" class="stage">
       <div class="glass">
         <div class="badge">🎉 Happy Birthday! 🎉</div>
-        <h1 style="font-family: 'Pacifico', cursive; font-size: 2.8rem; margin-bottom: 8px;">Happy Birthday, <span id="star-name">Ansh</span>! ✨</h1>
+        <h1 style="font-family: 'Pacifico', cursive; font-size: 2.8rem; margin-bottom: 8px;">Happy Birthday! ✨</h1>
         <p style="color: #636e72; margin-bottom: 24px;">Wishing you an unforgettable day filled with sweet moments and joy!</p>
 
         <!-- CAKE SECTION -->
@@ -88,7 +88,11 @@
 
         <!-- GIFTS SECTION -->
         <h2 style="font-family:'Fredoka'; color:var(--pink); font-size:1.5rem; margin-top:20px;">🎁 Tap Your Surprise Gifts!</h2>
-        <div class="gifts-grid" id="gifts-grid-container"></div>
+        <div class="gifts-grid">
+          <div class="gift-card" onclick="openGift('💛', 'You are my yellow (seacrh more on google)!!!! 🌟')"><div style="font-size:3rem;">🎁</div><b>LOVE</b></div>
+          <div class="gift-card" onclick="openGift('👑', 'I want to see you achive everything you\'ve ever told me, even if I am not there. ✨')"><div style="font-size:3rem;">👑</div><b>A Wish</b></div>
+          <div class="gift-card" onclick="openGift('💌', 'On your special day, I just want to remind you how deeply you are loved, and how grateful I am to have you in my life. Happy birthday! 💕')"><div style="font-size:3rem;">💌</div><b>Special Note</b></div>
+        </div>
       </div>
     </section>
   </div>
@@ -98,62 +102,13 @@
     <div class="modal-content">
       <div style="font-size:3.5rem; margin-bottom:10px;">🎁</div>
       <h3 id="m-title" style="font-family:'Fredoka'; color:var(--pink); margin-bottom:10px;"></h3>
-      <p id="m-body" style="line-height:1.6; margin-bottom:20px;"></p>
+      <p id="m-body" style="line-height:1.6; margin-bottom:20px; font-size:1.1rem; color:#2d3436;"></p>
       <button class="btn btn-yes" onclick="closeModal()">Yay! Thank You! 🥰</button>
     </div>
   </div>
 
-  <!-- ================================================================= -->
-  <!-- ✍️ EDIT YOUR CUSTOM NAMES & GIFT POPUP MESSAGES HERE: -->
-  <!-- ================================================================= -->
   <script>
-    const CONFIG = {
-      // 1. Birthday Person's Name:
-      name: "Ansh",
-
-      // 2. Quiz Question:
-      question: "Do you accept 1,000,000 birthday hugs, endless cake, and all my best wishes today? 💖",
-
-      // 3. EDIT YOUR GIFT POPUP MESSAGES HERE:
-      gifts: [
-        { 
-          emoji: "🎁", 
-          boxLabel: "Open Me First!", 
-          title: "Surprise #1 🎟️", 
-          text: "Write your custom message for Gift #1 here! 🍰" 
-        },
-        { 
-          emoji: "👑", 
-          boxLabel: "Secret Wish", 
-          title: "Surprise #2 👑", 
-          text: "Write your custom message for Gift #2 here! ✨" 
-        },
-        { 
-          emoji: "💌", 
-          boxLabel: "Special Note", 
-          title: "Surprise #3 💌", 
-          text: "Write your custom message for Gift #3 here! 💕" 
-        }
-      ]
-    };
-
     let noAttempts = 0, activeCandles = 4, audioCtx = null, isMusic = false;
-
-    document.addEventListener('DOMContentLoaded', () => {
-      document.getElementById('star-name').textContent = CONFIG.name;
-      document.getElementById('game-q-text').textContent = CONFIG.question;
-
-      // Render Dynamic Gifts from CONFIG
-      const giftsContainer = document.getElementById('gifts-grid-container');
-      giftsContainer.innerHTML = '';
-      CONFIG.gifts.forEach((g) => {
-        const card = document.createElement('div');
-        card.className = 'gift-card';
-        card.innerHTML = `<div style="font-size:3rem;">${g.emoji}</div><b>${g.boxLabel}</b>`;
-        card.onclick = () => openGift(g.title, g.text);
-        giftsContainer.appendChild(card);
-      });
-    });
 
     // NO BUTTON DODGE
     const btnNo = document.getElementById('btn-no'), btnYes = document.getElementById('btn-yes'), box = document.getElementById('btns-box');
