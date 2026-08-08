@@ -56,7 +56,7 @@ const CONFIG = {
       id: 1,
       title: "🎟️",
       boxLabel: "Open Me First!",
-      content: "Hope Your Day Was As Good As You Are!!"
+      content: "Hope Your Day Was As Good As You Are!!!"
     },
     {
       id: 2,
